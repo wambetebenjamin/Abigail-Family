@@ -1,0 +1,428 @@
+@import "tailwindcss";
+
+/*
+  Abigail Family design system.
+  Palette, type and icon fonts are inherited from the uploaded template
+  (Colorlib Welfare, design/template/welfare-gh-pages). The compiled template
+  stylesheet declares the Bootstrap token block below, and the SCSS source
+  declares the warm brand tokens used by the custom components:
+  $primary #f86f2d, $secondary #fa8f3d, $tertiary #faaa3a, $quarternary #7cbd1e.
+  Headings use Dosis, body copy uses Overpass.
+*/
+
+/* Bootstrap token block, reproduced verbatim from design/template/welfare-gh-pages/css/style.css */
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #78d5ef;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Flaticon, reproduced verbatim from design/template/welfare-gh-pages/css/flaticon.css */
+@font-face {
+  font-family: "Flaticon";
+  src: url("/fonts/flaticon/font/Flaticon.eot");
+  src: url("/fonts/flaticon/font/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("/fonts/flaticon/font/Flaticon.woff") format("woff"),
+       url("/fonts/flaticon/font/Flaticon.ttf") format("truetype"),
+       url("/fonts/flaticon/font/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("/fonts/flaticon/font/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+/* icomoon, reproduced verbatim from design/template/welfare-gh-pages/css/icomoon.css */
+@font-face {
+  font-family: 'icomoon';
+  src:  url('/fonts/icomoon/icomoon.eot?6tt51o');
+  src:  url('/fonts/icomoon/icomoon.eot?6tt51o#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon/icomoon.ttf?6tt51o') format('truetype'),
+    url('/fonts/icomoon/icomoon.woff?6tt51o') format('woff'),
+    url('/fonts/icomoon/icomoon.svg?6tt51o#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Ionicons, reproduced verbatim from design/template/welfare-gh-pages/css/ionicons.min.css */
+@font-face{font-family:"Ionicons";src:url("/fonts/ionicons/fonts/ionicons.eot?v=4.0.0-19");src:url("/fonts/ionicons/fonts/ionicons.eot?v=4.0.0-19#iefix") format("embedded-opentype"),url("/fonts/ionicons/fonts/ionicons.woff2?v=4.0.0-19") format("woff2"),url("/fonts/ionicons/fonts/ionicons.woff?v=4.0.0-19") format("woff"),url("/fonts/ionicons/fonts/ionicons.ttf?v=4.0.0-19") format("truetype"),url("/fonts/ionicons/fonts/ionicons.svg?v=4.0.0-19#Ionicons") format("svg");font-weight:normal;font-style:normal}
+
+/* open-iconic, reproduced verbatim from design/template/welfare-gh-pages/css/open-iconic-bootstrap.min.css */
+@font-face{font-family:Icons;src:url(/fonts/open-iconic/open-iconic.eot);src:url(/fonts/open-iconic/open-iconic.eot?#iconic-sm) format('embedded-opentype'),url(/fonts/open-iconic/open-iconic.woff) format('woff'),url(/fonts/open-iconic/open-iconic.ttf) format('truetype'),url(/fonts/open-iconic/open-iconic.otf) format('opentype'),url(/fonts/open-iconic/open-iconic.svg#iconic-sm) format('svg');font-weight:400;font-style:normal}
+
+@theme {
+  --font-sans: "Overpass", Arial, sans-serif;
+  --font-display: "Dosis", Arial, sans-serif;
+
+  --color-primary: #f86f2d;
+  --color-primary-strong: #d8571b;
+  --color-primary-soft: #fdeee6;
+  --color-secondary: #fa8f3d;
+  --color-tertiary: #faaa3a;
+  --color-sky: #78d5ef;
+  --color-sky-soft: #eaf7fb;
+  --color-leaf: #7cbd1e;
+  --color-ink: #000000;
+  --color-charcoal: #252525;
+  --color-slatedeep: #4a5562;
+  --color-muted: #808080;
+  --color-surface: #f8f9fa;
+  --color-line: #e9ecef;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Overpass", Arial, sans-serif;
+    background: #fff;
+    color: #808080;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+    font-family: "Dosis", Arial, sans-serif;
+    color: #000;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  strong, b {
+    font-weight: 600;
+  }
+
+  a {
+    transition: color 0.3s ease;
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #f86f2d;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: #f86f2d;
+    color: #fff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Template-inspired building blocks, authored mobile-first */
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-page { padding-inline: 1.5rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .container-page { padding-inline: 2rem; }
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #f86f2d;
+  }
+
+  .section-title {
+    font-family: "Dosis", Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #000;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+  }
+
+  .btn-primary {
+    background-color: #f86f2d;
+    border: 1px solid #f86f2d;
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: #d8571b;
+    border-color: #d8571b;
+    color: #fff;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    border: 1px solid #f86f2d;
+    color: #f86f2d;
+  }
+
+  .btn-outline:hover {
+    background-color: #f86f2d;
+    color: #fff;
+  }
+
+  .btn-light-outline {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    color: #fff;
+  }
+
+  .btn-light-outline:hover {
+    background-color: #fff;
+    color: #252525;
+  }
+
+  .card {
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -24px rgba(37, 37, 37, 0.35);
+    border-color: #fbd3c0;
+  }
+
+  .field {
+    width: 100%;
+    min-height: 44px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    background-color: #fff;
+    padding: 0.625rem 0.875rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: "Overpass", Arial, sans-serif;
+    color: #252525;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .field:focus {
+    outline: none;
+    border-color: #f86f2d;
+    box-shadow: 0 0 0 3px rgba(248, 111, 45, 0.18);
+  }
+
+  .field::placeholder {
+    color: #adb5bd;
+    font-weight: 300;
+  }
+
+  .field-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #4a5562;
+    margin-bottom: 0.375rem;
+  }
+
+  .prose-legal h2 {
+    font-size: 1.375rem;
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+    color: #000;
+  }
+
+  .prose-legal h3 {
+    font-size: 1.0625rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #252525;
+  }
+
+  .prose-legal p,
+  .prose-legal li {
+    font-size: 0.9375rem;
+    line-height: 1.85;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-legal ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* iOS safe area helpers */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+  .bottom-safe {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  }
+  .bottom-safe-dash {
+    bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+@media (min-width: 1024px) {
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .bottom-safe-dash {
+      bottom: calc(1.5rem + env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* Floating action pulse, echoing the template's soft glow accents */
+@keyframes af-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.wa-pulse {
+  animation: af-pulse-ring 2.4s ease-out 2;
+}
+
+@keyframes af-speak-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(248, 111, 45, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(248, 111, 45, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(248, 111, 45, 0);
+  }
+}
+
+.speaking-ring {
+  animation: af-speak-ring 1.8s ease-out infinite;
+}
+
+@keyframes af-draw-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes af-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: af-fade-up 0.7s ease-out both;
+}
+
+@keyframes af-sheen {
+  0% { background-position: -240px 0; }
+  100% { background-position: 240px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f1f3f5 25%, #e9ecef 37%, #f1f3f5 63%);
+  background-size: 480px 100%;
+  animation: af-sheen 1.4s ease-in-out infinite;
+}
+
+@keyframes af-voice-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(248, 111, 45, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(248, 111, 45, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(248, 111, 45, 0);
+  }
+}
+
+.voice-pulse {
+  animation: af-voice-ring 2.6s ease-out 2;
+}
